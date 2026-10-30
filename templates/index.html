@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GHOST RESTAURANT</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: #080f16;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background: #050a10;
+            padding: 22px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #263746;
+        }
+
+        header h2 {
+            color: #ffad00;
+            font-size: 25px;
+        }
+
+        header span {
+            color: white;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        .hero {
+            min-height: 330px;
+            padding: 65px 7%;
+            background:
+                linear-gradient(90deg, #080f16 15%, #080f16aa),
+                url("https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=1400")
+                center/cover;
+        }
+
+        .hero h1 {
+            font-size: clamp(38px, 7vw, 65px);
+            max-width: 550px;
+        }
+
+        .hero h1 span {
+            color: #ffad00;
+        }
+
+        .hero p {
+            margin-top: 15px;
+            color: #ddd;
+            font-size: 18px;
+        }
+
+        .section {
+            padding: 45px 7%;
+        }
+
+        .section h2 {
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        .section h2 span {
+            color: #ffad00;
+        }
+
+        .subtitle {
+            color: #aaa;
+            margin-bottom: 25px;
+        }
+
+        .menu {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: #101c27;
+            border: 1px solid #344453;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #ffad00;
+        }
+
+        .card img {
+            width: 100%;
+            height: 175px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 18px;
+        }
+
+        .card h3 {
+            font-size: 21px;
+        }
+
+        .price {
+            color: #ffad00;
+            font-size: 21px;
+            font-weight: bold;
+            margin: 12px 0;
+        }
+
+        button {
+            background: #ffad00;
+            color: #080f16;
+            border: none;
+            padding: 13px;
+            border-radius: 30px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .card button {
+            width: 100%;
+        }
+
+        button:hover {
+            background: #ffc343;
+        }
+
+        .order-section {
+            padding: 20px 7% 55px;
+            display: grid;
+            grid-template-columns: 1.3fr 0.7fr;
+            gap: 25px;
+        }
+
+        .order-box, .summary {
+            background: #101c27;
+            border: 1px solid #344453;
+            border-radius: 12px;
+            padding: 25px;
+        }
+
+        label {
+            display: block;
+            margin: 17px 0 8px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 14px;
+            border-radius: 7px;
+            border: 1px solid #435363;
+            background: #182632;
+            color: white;
+            font-size: 16px;
+        }
+
+        .submit {
+            width: 100%;
+            margin-top: 22px;
+            font-size: 16px;
+        }
+
+        .summary p {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            margin: 20px 0;
+            color: #ddd;
+        }
+
+        .summary strong {
+            color: #ffad00;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: #aaa;
+            background: #050a10;
+        }
+
+        @media(max-width: 700px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 0 8px;
+            }
+
+            .order-section {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h2>👻 GHOST <span>RESTAURANT</span></h2>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#menu">Menu</a>
+        <a href="#order">Order</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h1>WELCOME TO <span>GHOST RESTAURANT</span></h1>
+    <p>Fresh Food • Great Taste • Fast Delivery</p>
+</section>
+
+<section class="section" id="menu">
+    <h2>OUR <span>MENU</span></h2>
+    <p class="subtitle">Delicious meals at affordable prices.</p>
+
+    <div class="menu">
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=600" alt="Chicken">
+            <div class="card-content">
+                <h3>Chicken</h3>
+                <p class="price">TSh 8,000</p>
+                <button type="button" onclick="chooseFood('Chicken')">ORDER NOW</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600" alt="Burger">
+            <div class="card-content">
+                <h3>Burger</h3>
+                <p class="price">TSh 5,000</p>
+                <button type="button" onclick="chooseFood('Burger')">ORDER NOW</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1571407970349-bc81e7e96d47?w=600" alt="Pizza">
+            <div class="card-content">
+                <h3>Pizza</h3>
+                <p class="price">TSh 12,000</p>
+                <button type="button" onclick="chooseFood('Pizza')">ORDER NOW</button>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section class="order-section" id="order">
+
+    <div class="order-box">
+        <h2>🛒 PLACE YOUR ORDER</h2>
+        <p class="subtitle">Fill in your delivery details.</p>
+
+        <form action="/order" method="POST">
+
+            <label>Choose Food:</label>
+            <select name="food" id="food" onchange="updateSummary()" required>
+                <option value="Chicken">Chicken</option>
+                <option value="Burger">Burger</option>
+                <option value="Pizza">Pizza</option>
+            </select>
+
+            <label>Quantity:</label>
+            <input type="number" name="quantity" id="quantity"
+                   min="1" value="1" oninput="updateSummary()" required>
+
+            <label>Delivery Location:</label>
+            <input type="text" name="location"
+                   placeholder="e.g. Kawe, Sinza, Ilala" required>
+
+            <button class="submit" type="submit">🛒 PLACE ORDER</button>
+
+        </form>
+    </div>
+
+    <div class="summary">
+        <h2>📋 ORDER SUMMARY</h2>
+
+        <p>Food: <span id="summary-food">Chicken</span></p>
+        <p>Quantity: <span id="summary-quantity">1</span></p>
+        <p>Unit Price: <span id="summary-price">TSh 8,000</span></p>
+
+        <hr>
+
+        <p><strong>Total:</strong>
+            <strong id="summary-total">TSh 8,000</strong>
+        </p>
+
+        <p>👻 Thank you for choosing GHOST RESTAURANT!</p>
+    </div>
+
+</section>
+
+<footer>
+    © 2026 GHOST RESTAURANT | Fresh Food, Great Taste.
+</footer>
+
+<script>
+    const prices = {
+        Chicken: 8000,
+        Burger: 5000,
+        Pizza: 12000
+    };
+
+    function chooseFood(food) {
+        document.getElementById("food").value = food;
+        updateSummary();
+        document.getElementById("order").scrollIntoView({
+            behavior: "smooth"
+        });
+    }
+
+    function updateSummary() {
+        const food = document.getElementById("food").value;
+        const quantity = Math.max(
+            1,
+            Number(document.getElementById("quantity").value) || 1
+        );
+
+        const price = prices[food];
+        const total = price * quantity;
+
+        document.getElementById("summary-food").textContent = food;
+        document.getElementById("summary-quantity").textContent = quantity;
+        document.getElementById("summary-price").textContent =
+            "TSh " + price.toLocaleString("en-US");
+        document.getElementById("summary-total").textContent =
+            "TSh " + total.toLocaleString("en-US");
+    }
+
+    updateSummary();
+</script>
+
+</body>
+</html>
